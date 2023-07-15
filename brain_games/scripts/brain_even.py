@@ -31,17 +31,19 @@ def main():
         random_num = randint(1, 100)
         print('Question: ' + str(random_num))
         otvet = prompt.string('Your answer: ')
-        if vopros_otvet(random_num, otvet) == True:
+        if vopros_otvet(random_num, otvet) is True:
             i += 1
             print('Correct')
             continue
-        elif vopros_otvet(random_num, otvet) == False and otvet == 'no':
-            print("'" + otvet + "' is wrong answer ;(. Correct answer was 'yes'.")
+        elif not vopros_otvet(random_num, otvet) and otvet == 'no':
+            print("'" + otvet + "' is wrong answer ;(."
+                  " Correct answer was 'yes'.")
             print("Let's try again, " + name + "!")
             success = False
             break
         else:
-            print("'" + otvet + "' is wrong answer ;(. Correct answer was 'no'.")
+            print("'" + otvet + "' is wrong answer ;(."
+                  " Correct answer was 'no'.")
             print("Let's try again, " + name + "!")
             success = False
             break
