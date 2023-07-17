@@ -30,7 +30,7 @@ def corr_otvet(random_num):
 
 
 def proverka_answer(otvet_user, real_otvet):
-    if otvet_user == real_otvet:
+    if int(otvet_user) == int(real_otvet):
         return True
     else:
         return False
@@ -48,6 +48,16 @@ def calc_rotvet(rand_n1, rand_n2, oper):
         return rand_n1 - rand_n2
     else:
         return rand_n1 * rand_n2
+
+
+def calc_nod(r_n1, r_n2):
+    nod = 0
+    while True:
+        nod = r_n1 % r_n2
+        r_n1 = r_n2
+        if nod == 0:
+            return r_n2
+        r_n2 = nod
 
 
 def games_engine(name, name_game):
@@ -70,6 +80,14 @@ def games_engine(name, name_game):
                   ' ' + str(rand_n2))
             otvet = prompt.string('Your answer: ')
             otvet = int(otvet)
+            prov_corr = proverka_answer(otvet, real_otvet)
+            otvet_vprint = str(real_otvet)
+        elif name_game == 'brain_gcd':
+            rand_n1 = randint(1, 100)
+            rand_n2 = randint(1, 100)
+            print('Question: ' + str(rand_n1) + ' ' + str(rand_n2))
+            real_otvet = calc_nod(rand_n1, rand_n2)
+            otvet = prompt.string('Your answer: ')
             prov_corr = proverka_answer(otvet, real_otvet)
             otvet_vprint = str(real_otvet)
         if prov_corr is True:
