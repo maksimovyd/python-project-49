@@ -3,6 +3,7 @@
 import brain_games.cli
 import brain_games.scripts.driver.engine
 
+
 def main():
     name = brain_games.cli.welcome_user()
     print('What is the result of the expression?')
