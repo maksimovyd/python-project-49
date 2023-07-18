@@ -7,7 +7,8 @@ import brain_games.cli
 def main():
     name = brain_games.cli.welcome_user()
     print('What number is missing in the progression?')
-    success = brain_games.scripts.driver.engine.games_engine(name, 'brain_progression')
+    success = brain_games.scripts.driver.engine.\
+        games_engine(name, 'brain_progression')
     if success:
         print("Congratulations, " + name + "!")
 
