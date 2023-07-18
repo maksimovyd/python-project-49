@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "My first teacher project in hexlet"
 authors = ["maksimov.yd <maksimov.yd@gmail.com>"]
 readme = "README.md"
+repository = "https://github.com/maksimovyd/python-project-49"
 packages = [
   { include = "brain_games" },
 ]
