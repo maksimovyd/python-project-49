@@ -144,10 +144,12 @@ def vivod_posled(q_chisl, num_otvet, shag):
     real_otvet = perv_ch + shag
     while i <= q_chisl:
         if i == num_otvet:
-            posled += '.. '
+            posled += '..'
             real_otvet = perv_ch + shag
         else:
-            posled += str(perv_ch + shag) + ' '
+            posled += str(perv_ch + shag)
+        if i < q_chisl:
+            posled += ' '
         perv_ch = perv_ch + shag
         i += 1
     print(posled)
