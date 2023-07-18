@@ -30,7 +30,7 @@ def corr_otvet(random_num):
 
 
 def proverka_answer(otvet_user, real_otvet):
-    if int(otvet_user) == int(real_otvet):
+    if str(otvet_user) == str(real_otvet):
         return True
     else:
         return False
@@ -90,6 +90,14 @@ def games_engine(name, name_game):
             otvet = prompt.string('Your answer: ')
             prov_corr = proverka_answer(otvet, real_otvet)
             otvet_vprint = str(real_otvet)
+        elif name_game == 'brain_progression':
+            q_chisl = randint(5, 15)
+            num_otvet = randint(1, q_chisl)
+            shag = randint(2, 7)
+            real_otvet = vivod_posled(q_chisl, num_otvet, shag)
+            otvet = prompt.string('Your answer: ')
+            prov_corr = proverka_answer(otvet, real_otvet)
+            otvet_vprint = str(real_otvet)
         if prov_corr is True:
             i += 1
             print('Correct')
@@ -100,3 +108,20 @@ def games_engine(name, name_game):
             print("Let's try again, " + name + "!")
             return False
     return True
+
+
+def vivod_posled(q_chisl, num_otvet, shag):
+    perv_ch = randint(1, 100)
+    posled = ''
+    i = 1
+    real_otvet = perv_ch + shag
+    while i <= q_chisl:
+        if i == num_otvet:
+            posled += '.. '
+            real_otvet = perv_ch + shag
+        else:
+            posled += str(perv_ch + shag) + ' '
+        perv_ch = perv_ch + shag
+        i += 1
+    print(posled)
+    return real_otvet
