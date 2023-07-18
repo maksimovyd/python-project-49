@@ -102,7 +102,7 @@ def games_engine(name, name_game):
             random_num = randint(1, 100)
             print('Question: ' + str(random_num))
             otvet = prompt.string('Your answer: ')
-            prov_corr = prover_prostoe(random_num, otvet)   
+            prov_corr = prover_prostoe(random_num, otvet)
             otvet_vprint = otvet_prostoe(random_num)
         if prov_corr is True:
             i += 1
@@ -127,22 +127,14 @@ def otvet_prostoe(random_num):
 
 
 def prover_prostoe(random_num, otvet):
-    if random_num == 2 or random_num == 3:
-        if otvet == 'yes':
-            return True
-        else:
-            return False
-    elif random_num != 2 and random_num != 3:
-        if random_num % 2 != 0 and random_num % 3 != 0:
-            if otvet == 'yes':
-                return True
-            else:
-                return False
-        elif random_num % 2 == 0 or random_num % 3 == 0:
-            if otvet == 'no':
-                return True          
-            else:
-                return False
+    if (random_num == 2 or random_num == 3) and otvet == 'yes':
+        return True
+    elif random_num % 2 != 0 and random_num % 3 != 0 and otvet == 'yes':
+        return True
+    elif (random_num % 2 == 0 or random_num % 3 == 0) and otvet == 'no':
+        return True
+    else:
+        return False
 
 
 def vivod_posled(q_chisl, num_otvet, shag):
