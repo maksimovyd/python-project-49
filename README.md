@@ -12,3 +12,6 @@
 
 ### asciinema rec 3
 [![asciinema](https://asciinema.org/a/vHmM8oYhcmZAZiiN9WzqCNZEf)
+
+### asciinema rec 4
+[![asciinema](https://asciinema.org/a/jVoPCzzfBXU4d8tWuUQakd7qU)
