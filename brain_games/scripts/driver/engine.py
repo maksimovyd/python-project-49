@@ -152,5 +152,6 @@ def vivod_posled(q_chisl, num_otvet, shag):
             posled += ' '
         perv_ch = perv_ch + shag
         i += 1
+    posled = 'Question: ' + posled
     print(posled)
     return real_otvet
