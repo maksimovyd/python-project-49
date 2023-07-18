@@ -15,3 +15,6 @@
 
 ### asciinema rec 4
 [![asciinema](https://asciinema.org/a/jVoPCzzfBXU4d8tWuUQakd7qU)
+
+### asciinema rec 5
+[![asciinema](https://asciinema.org/a/5NXGKZtp3YDQZFuvsE9nIvjBI)
