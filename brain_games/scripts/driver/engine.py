@@ -60,58 +60,105 @@ def calc_nod(r_n1, r_n2):
         r_n2 = nod
 
 
+def play_brain_even(name):
+    random_num = randint(1, 100)
+    print('Question: ' + str(random_num))
+    otvet = prompt.string('Your answer: ')
+    prov_corr = vopros_otvet(random_num, otvet)
+    otvet_vprint = corr_otvet(random_num)
+    if prov_corr is False:
+        print("'" + str(otvet) + "' is wrong answer ;(."
+              " Correct answer was '" + otvet_vprint + "'.")
+        print("Let's try again, " + name + "!")
+        return False
+    else:
+        return True
+
+
+def play_brain_calc(name):
+    rand_n1 = randint(1, 100)
+    rand_n2 = randint(1, 100)
+    oper = generate_operations()
+    real_otvet = calc_rotvet(rand_n1, rand_n2, oper)
+    print('Question: ' + str(rand_n1) + ' ' + str(oper) +
+          ' ' + str(rand_n2))
+    otvet = prompt.string('Your answer: ')
+    otvet = int(otvet)
+    prov_corr = proverka_answer(otvet, real_otvet)
+    otvet_vprint = str(real_otvet)
+    if prov_corr is False:
+        print("'" + str(otvet) + "' is wrong answer ;(."
+              " Correct answer was '" + otvet_vprint + "'.")
+        print("Let's try again, " + name + "!")
+        return False
+    else:
+        return True
+
+
+def play_brain_gcd(name):
+    rand_n1 = randint(1, 100)
+    rand_n2 = randint(1, 100)
+    print('Question: ' + str(rand_n1) + ' ' + str(rand_n2))
+    real_otvet = calc_nod(rand_n1, rand_n2)
+    otvet = prompt.string('Your answer: ')
+    prov_corr = proverka_answer(otvet, real_otvet)
+    otvet_vprint = str(real_otvet)
+    if prov_corr is False:
+        print("'" + str(otvet) + "' is wrong answer ;(."
+              " Correct answer was '" + otvet_vprint + "'.")
+        print("Let's try again, " + name + "!")
+        return False
+    else:
+        return True
+
+
+def play_brain_progression(name):
+    q_chisl = randint(5, 15)
+    num_otvet = randint(1, q_chisl)
+    shag = randint(2, 7)
+    real_otvet = vivod_posled(q_chisl, num_otvet, shag)
+    otvet = prompt.string('Your answer: ')
+    prov_corr = proverka_answer(otvet, real_otvet)
+    otvet_vprint = str(real_otvet)
+    if prov_corr is False:
+        print("'" + str(otvet) + "' is wrong answer ;(."
+              " Correct answer was '" + otvet_vprint + "'.")
+        print("Let's try again, " + name + "!")
+        return False
+    else:
+        return True
+
+
+def play_brain_prime(name):
+    random_num = randint(1, 100)
+    print('Question: ' + str(random_num))
+    otvet = prompt.string('Your answer: ')
+    prov_corr = prover_prostoe(random_num, otvet)
+    otvet_vprint = otvet_prostoe(random_num)
+    if prov_corr is False:
+        print("'" + str(otvet) + "' is wrong answer ;(."
+              " Correct answer was '" + otvet_vprint + "'.")
+        print("Let's try again, " + name + "!")
+        return False
+    else:
+        return True
+
+
 def games_engine(name, name_game):
-    otvet_vprint = ''
-    prov_corr = False
-    i = 0
-    while i <= 2:
-        if name_game == 'brain_even':
-            random_num = randint(1, 100)
-            print('Question: ' + str(random_num))
-            otvet = prompt.string('Your answer: ')
-            prov_corr = vopros_otvet(random_num, otvet)
-            otvet_vprint = corr_otvet(random_num)
-        elif name_game == 'brain_calc':
-            rand_n1 = randint(1, 100)
-            rand_n2 = randint(1, 100)
-            oper = generate_operations()
-            real_otvet = calc_rotvet(rand_n1, rand_n2, oper)
-            print('Question: ' + str(rand_n1) + ' ' + str(oper) +
-                  ' ' + str(rand_n2))
-            otvet = prompt.string('Your answer: ')
-            otvet = int(otvet)
-            prov_corr = proverka_answer(otvet, real_otvet)
-            otvet_vprint = str(real_otvet)
-        elif name_game == 'brain_gcd':
-            rand_n1 = randint(1, 100)
-            rand_n2 = randint(1, 100)
-            print('Question: ' + str(rand_n1) + ' ' + str(rand_n2))
-            real_otvet = calc_nod(rand_n1, rand_n2)
-            otvet = prompt.string('Your answer: ')
-            prov_corr = proverka_answer(otvet, real_otvet)
-            otvet_vprint = str(real_otvet)
-        elif name_game == 'brain_progression':
-            q_chisl = randint(5, 15)
-            num_otvet = randint(1, q_chisl)
-            shag = randint(2, 7)
-            real_otvet = vivod_posled(q_chisl, num_otvet, shag)
-            otvet = prompt.string('Your answer: ')
-            prov_corr = proverka_answer(otvet, real_otvet)
-            otvet_vprint = str(real_otvet)
-        elif name_game == 'brain_prime':
-            random_num = randint(1, 100)
-            print('Question: ' + str(random_num))
-            otvet = prompt.string('Your answer: ')
-            prov_corr = prover_prostoe(random_num, otvet)
-            otvet_vprint = otvet_prostoe(random_num)
-        if prov_corr is True:
-            i += 1
+    games = {
+        'brain_even': play_brain_even,
+        'brain_calc': play_brain_calc,
+        'brain_gcd': play_brain_gcd,
+        'brain_progression': play_brain_progression,
+        'brain_prime': play_brain_prime
+    }
+    play_game = games.get(name_game)
+    if not play_game:
+        return False
+    for _ in range(3):
+        if play_game(name):
             print('Correct')
-            continue
         else:
-            print("'" + str(otvet) + "' is wrong answer ;(."
-                  " Correct answer was '" + otvet_vprint + "'.")
-            print("Let's try again, " + name + "!")
             return False
     return True
 
