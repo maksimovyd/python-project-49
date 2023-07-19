@@ -129,21 +129,6 @@ def play_brain_progression(name):
         return True
 
 
-def play_brain_prime(name):
-    random_num = randint(1, 100)
-    print('Question: ' + str(random_num))
-    otvet = prompt.string('Your answer: ')
-    prov_corr = prover_prostoe(random_num, otvet)
-    otvet_vprint = otvet_prostoe(random_num)
-    if prov_corr is False:
-        print("'" + str(otvet) + "' is wrong answer ;(."
-              " Correct answer was '" + otvet_vprint + "'.")
-        print("Let's try again, " + name + "!")
-        return False
-    else:
-        return True
-
-
 def games_engine(name, name_game):
     games = {
         'brain_even': play_brain_even,
@@ -163,22 +148,32 @@ def games_engine(name, name_game):
     return True
 
 
+def play_brain_prime(name):
+    random_num = randint(1, 100)
+    print('Question: ' + str(random_num))
+    otvet = prompt.string('Your answer: ')
+    otvet_vprint = otvet_prostoe(random_num)
+    prov_corr = prover_prostoe(otvet_vprint, otvet)
+    if prov_corr is False:
+        print("'" + str(otvet) + "' is wrong answer ;(."
+              " Correct answer was '" + otvet_vprint + "'.")
+        print("Let's try again, " + name + "!")
+        return False
+    else:
+        return True
+
+
 def otvet_prostoe(random_num):
-    if random_num == 2 or random_num == 3:
-        return 'yes'
-    elif random_num != 2 and random_num != 3:
-        if random_num % 2 != 0 and random_num % 3 != 0:
-            return 'yes'
-        elif random_num % 2 == 0 or random_num % 3 == 0:
+    if random_num < 2:
+        return 'no'
+    for i in range(2, random_num // 2 + 1):
+        if random_num % i == 0:
             return 'no'
+    return 'yes'
 
 
-def prover_prostoe(random_num, otvet):
-    if (random_num == 2 or random_num == 3) and otvet == 'yes':
-        return True
-    elif random_num % 2 != 0 and random_num % 3 != 0 and otvet == 'yes':
-        return True
-    elif (random_num % 2 == 0 or random_num % 3 == 0) and otvet == 'no':
+def prover_prostoe(otvet_vprint, otvet):
+    if otvet_vprint == otvet:
         return True
     else:
         return False
