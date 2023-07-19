@@ -80,7 +80,7 @@ def play_brain_calc(name):
     rand_n2 = randint(1, 100)
     oper = generate_operations()
     real_otvet = calc_rotvet(rand_n1, rand_n2, oper)
-    print('Question: ' + 
+    print('Question: ' +
           str(rand_n1) + ' ' + str(oper) + ' ' + str(rand_n2))
     otvet = prompt.string('Your answer: ')
     otvet = int(otvet)
