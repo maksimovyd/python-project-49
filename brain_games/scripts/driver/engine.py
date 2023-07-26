@@ -3,6 +3,11 @@
 from random import choice
 from random import randint
 import brain_games.scripts
+import brain_games.scripts.brain_even
+import brain_games.scripts.brain_calc
+import brain_games.scripts.brain_gcd
+import brain_games.scripts.brain_progression
+import brain_games.scripts.brain_prime
 import prompt
 
 
