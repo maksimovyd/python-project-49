@@ -14,7 +14,6 @@ def main():
         print("Congratulations, " + name + "!")
 
 
-
 def play_brain_progression(NAME):
     QUANTITY_NUMS = randint(5, 15)
     NUMBER_NUM = randint(1, QUANTITY_NUMS)
@@ -44,7 +43,6 @@ def output_sequence(QUANTITY_NUMS, NUMBER_NUM, STEP):
     SEQUENCE = 'Question: ' + SEQUENCE
     print(SEQUENCE)
     return REAL_ANSWER
-
 
 
 if __name__ == '__main__':

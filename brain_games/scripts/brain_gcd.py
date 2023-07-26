@@ -4,6 +4,7 @@ import brain_games.scripts.driver.engine
 import brain_games.cli
 from random import randint
 
+
 def main():
     name = brain_games.cli.welcome_user()
     print('Find the greatest common divisor of given numbers.')

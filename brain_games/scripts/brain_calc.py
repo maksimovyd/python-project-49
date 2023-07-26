@@ -18,7 +18,9 @@ def play_brain_calc(NAME):
     RANDOM_NUM_ONE, RANDOM_NUM_TWO = randint(1, 100), randint(1, 100)
     OPER = choice(['+', '-', '*'])
     real_answer = calc_rotvet(RANDOM_NUM_ONE, RANDOM_NUM_TWO, OPER)
-    print('Question: ' + str(RANDOM_NUM_ONE) + ' ' + str(OPER) + ' ' + str(RANDOM_NUM_TWO))
+    print(
+        'Question: ' + str(RANDOM_NUM_ONE) + ' '
+        + str(OPER) + ' ' + str(RANDOM_NUM_TWO))
     if brain_games.scripts.driver.engine.final_output(real_answer, NAME):
         return True
     else:
