@@ -4,7 +4,6 @@ import brain_games.cli
 import brain_games.scripts.driver.engine
 from random import choice
 from random import randint
-import prompt
 
 
 def main():
