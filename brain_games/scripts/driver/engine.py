@@ -41,7 +41,4 @@ def games_engine(NAME, NAME_GAME):
 
 
 def verify_answer(USER_ANSWER, REAL_ANSWER):
-    if str(USER_ANSWER) == str(REAL_ANSWER):
-        return True
-    else:
-        return False
+    return str(USER_ANSWER) == str(REAL_ANSWER)
